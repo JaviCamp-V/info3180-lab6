@@ -49,7 +49,7 @@ created() {
   let self = this;
   fetch('https://newsapi.org/v2/top-headlines?country=us',{
   headers: {
-          'Authorization': '92db419ef4d5489a976ef8ec39a45de6'
+          'Authorization': ''
   }})
   .then(function(response) {
   return response.json();
@@ -71,7 +71,7 @@ created() {
       fetch('https://newsapi.org/v2/everything?q='+
       self.searchTerm + '&language=en', {
       headers: {
-      'Authorization': '92db419ef4d5489a976ef8ec39a45de6'
+      'Authorization': ''
       }
       })
       .then(function(response) {
