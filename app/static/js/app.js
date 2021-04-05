@@ -28,19 +28,28 @@ const Home = {
     @click="searchNews">Search</button>
 </div>
 </div>
+<div calss="newslist">
 <ul class="news__list">
-<li v-for="article in articles"
-class="news__item"> <span class ="artitle">{{ article.title }}</span>
+<li v-for="article in articles" class="news__item"> 
+<div class="card  ">
+<div class="card-body">
+<span class ="card-title">{{ article.title }}</span>
+
 <img :src=article.urlToImage> 
 {{article.description}}
+</div>
+</div>
+
 </li>
+
 </ul>
+</div?
 </div>`,
 created() {
   let self = this;
   fetch('https://newsapi.org/v2/top-headlines?country=us',{
   headers: {
-          'Authorization': 'Bearer '
+          'Authorization': '92db419ef4d5489a976ef8ec39a45de6'
   }})
   .then(function(response) {
   return response.json();
@@ -62,7 +71,7 @@ created() {
       fetch('https://newsapi.org/v2/everything?q='+
       self.searchTerm + '&language=en', {
       headers: {
-      'Authorization': 'Bearer '
+      'Authorization': '92db419ef4d5489a976ef8ec39a45de6'
       }
       })
       .then(function(response) {
@@ -98,8 +107,8 @@ app.component('app-header', {
   name: 'AppHeader',
   template: `
       <header>
-          <nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top">
-            <a class="navbar-brand" href="#">VueJS App</a>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+       <a class="navbar-brand" href="#">VueJS App</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
